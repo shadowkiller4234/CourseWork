@@ -18,8 +18,10 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    "https://techstore2-three.vercel.app/",
+    origin: [
+      "http://localhost:5173",
+      "https://techstore2-three.vercel.app"
+    ],
     credentials: true,
   })
 );
