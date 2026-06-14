@@ -1,0 +1,166 @@
+.product-page {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Две колонки: галерея и инфо */
+  gap: 60px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Галерея */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  background: #f9f9f9;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.thumbs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.thumbs img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background: #f9f9f9;
+  transition: 0.2s;
+}
+
+.thumbs img.active {
+  border-color: #007bff;
+}
+
+/* Блок информации */
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.info h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1d1d1f;
+}
+
+.brand {
+  font-size: 18px;
+  color: #007bff;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #515154;
+  margin-bottom: 30px;
+}
+
+/* Характеристики */
+.attrs {
+  background: #f5f5f7;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.attrs div {
+  font-size: 14px;
+  color: #333;
+}
+
+.attrs strong {
+  color: #86868b;
+  text-transform: capitalize;
+}
+
+/* Статус наличия */
+.stock {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stock.in { color: #28a745; }
+.stock.out { color: #dc3545; }
+
+.stock.in::before {
+  content: "●";
+}
+
+/* Цена */
+.price {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+}
+
+.new {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1d1d1f;
+}
+
+.old {
+  font-size: 20px;
+  color: #86868b;
+  text-decoration: line-through;
+}
+
+/* Кнопка */
+.info button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.info button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+
+.info button:active {
+  transform: translateY(0);
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 768px) {
+  .product-page {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

@@ -1,0 +1,183 @@
+/* Основной контейнер страницы */
+.orders-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #333;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Заголовок страницы */
+.orders-page h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.75rem;
+}
+
+/* Список карточек */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Красивая карточка заказа */
+.order-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Блок информации о пользователе */
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.order-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.order-info p b {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* Выделение ID и Цены */
+.order-info p:first-child {
+  font-family: monospace;
+  font-size: 0.85rem;
+  background: #f1f5f9;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+.order-info p:last-child {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #10b981; /* Зеленый цвет для итоговой суммы */
+  margin-top: 0.25rem;
+}
+
+/* Блок со списком товаров */
+.order-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-left: 1px solid #e2e8f0;
+  border-right: 1px solid #e2e8f0;
+  padding: 0 1.5rem;
+  max-height: 150px;
+  overflow-y: auto; /* Если товаров слишком много, появится аккуратный скролл */
+}
+
+/* Строка одного товара */
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.order-item p {
+  margin: 0;
+}
+
+.order-item p:first-child {
+  font-weight: 500;
+  color: #334155;
+  flex: 1;
+}
+
+.order-item p:nth-child(2) {
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.order-item p:last-child {
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Кастомизация выпадающего списка (Селекта) */
+.status-select {
+  justify-self: end;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+  width: 130px;
+  text-align: center;
+}
+
+.status-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* Стилизация селекта в зависимости от выбранного статуса */
+.status-select[value="pending"] {
+  background-color: #fffbeb;
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+.status-select[value="paid"] {
+  background-color: #ecfdf5;
+  color: #047857;
+  border-color: #a7f3d0;
+}
+
+.status-select[value="shipped"] {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .order-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .order-items {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1rem 0;
+  }
+
+  .status-select {
+    justify-self: start;
+    width: 100%;
+  }
+}

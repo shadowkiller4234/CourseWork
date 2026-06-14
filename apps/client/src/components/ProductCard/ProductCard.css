@@ -1,0 +1,206 @@
+.product-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  max-width: 320px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.product-card--muted {
+  opacity: 0.8;
+}
+
+/* Бейдж знижки — тепер яскравий та помітний на білому тлі */
+.product-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #ef4444; /* Насичений червоний (можна замінити на вашу змінну) */
+  color: white;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+/* Обгортка картинки — змінено пропорцію під прямокутні ноутбуки */
+.product-image-wrapper {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Замість 1/1, щоб прибрати порожні "діри" зверху і знизу */
+  overflow: hidden;
+  background: #f9fafb;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px; /* Злегка зменшили паддінг, щоб товар виглядав крупніше */
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.04);
+}
+
+/* Інформаційній блок */
+.product-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Мета (Бренд + Статус) */
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+}
+
+.product-brand {
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-status {
+  font-weight: 500;
+}
+
+.product-status.in {
+  color: var(--success-color);
+}
+
+.product-status.out {
+  color: var(--text-muted);
+}
+
+/* Заголовок товару — оптимізована висота під мікро-шрифт */
+.product-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.6em; /* Чітко фіксує дві лінії тексту для ідеального вирівнювання карток у ряд */
+  transition: color 0.2s ease;
+}
+
+.product-title:hover {
+  color: var(--primary-color);
+}
+
+/* Характеристики — ПОВНІСТЮ ОНОВЛЕНО на жорстку двоколонкову систему */
+.product-attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Збільшено відступ для легшого читання */
+  margin-bottom: 20px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.attr-item {
+  display: flex;
+  align-items: flex-start; /* Вирівнювання по верху, якщо текст значення переноситься */
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.attr-key {
+  color: var(--text-muted);
+  width: 45%; /* Ліва колонка займає фіксовані 45% */
+  flex-shrink: 0;
+  padding-right: 8px;
+}
+
+.attr-value {
+  color: var(--text-main);
+  font-weight: 500;
+  width: 55%; /* Права колонка займає 55% і красиво переносить довгі назви чи процесори */
+}
+
+/* Футер картки */
+.product-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.product-price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.old-price {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.current-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.currency {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Кнопка */
+.add-to-cart-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.add-to-cart-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.add-to-cart-btn:disabled {
+  background: var(--border-color);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}

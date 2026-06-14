@@ -1,0 +1,138 @@
+/* Базовий контейнер */
+.admin {
+  display: flex;
+  min-height: 100vh;
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Оновлений Сайдбар (тепер використовує space-between для розподілу меню та кнопки) */
+.sidebar {
+  width: 260px;
+  background-color: #fafafa;
+  border-right: 1px solid #e4e4e7;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Розштовхує верхній блок і кнопку логауту */
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Групування заголовка та навігації всередині сайдбару */
+.sidebar > div {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Заголовок */
+.sidebar h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #71717a;
+  margin: 0;
+  padding-left: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Навігація */
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Посилання меню */
+.sidebar nav a {
+  display: block;
+  padding: 10px 12px;
+  color: #52525b;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.sidebar nav a:hover {
+  background-color: #f4f4f5;
+  color: #18181b;
+}
+
+/* Активний стан меню */
+.sidebar nav a.active {
+  background-color: #18181b;
+  color: #ffffff;
+}
+
+/* СТИЛЬ ДЛЯ КНОПКИ LOGOUT */
+.logout-btn {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 12px;
+  color: #71717a;
+  background-color: transparent;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+  width: 100%;
+}
+
+/* Ефект при наведенні на Logout */
+.logout-btn:hover {
+  color: #dc2626;          /* Стає червоною */
+  border-color: #fecaca;   /* Ніжно-червона рамка */
+  background-color: #fef2f2; /* М'який рожевий фон */
+}
+
+/* Область контенту */
+.content {
+  flex: 1;
+  padding: 40px 60px;
+  background-color: #ffffff;
+  overflow-y: auto;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .admin {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 20px;
+    border-right: none;
+    border-bottom: 1px solid #e4e4e7;
+    gap: 20px;
+  }
+  
+  .sidebar > div {
+    gap: 16px;
+  }
+  
+  .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .logout-btn {
+    width: auto;
+    align-self: flex-start;
+    padding: 8px 16px;
+  }
+  
+  .content {
+    padding: 24px 20px;
+  }
+}

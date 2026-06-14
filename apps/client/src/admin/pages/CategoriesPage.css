@@ -1,0 +1,364 @@
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  margin: 0;
+}
+
+/* Контейнер сторінки */
+.categories-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 0.5rem 0;
+}
+
+.page-header p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Двоколонкова сітка */
+.categories-grid {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Картки загальні */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Елементи форми */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font-size: 0.95rem;
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+/* Конструктор атрибутів */
+.attributes-section {
+  margin-bottom: 1.5rem;
+  background: #fafafa;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-color);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.empty-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.attributes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.attr-row.card {
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.attr-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.attr-fields select {
+  grid-column: span 2;
+}
+
+.attr-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.5rem;
+}
+
+/* Кнопки */
+button {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.btn-primary:disabled {
+  background: var(--border-color);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+}
+
+.btn-sm {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-icon-delete {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-icon-delete:hover {
+  background: var(--danger-light);
+  color: var(--danger);
+}
+
+/* Чекбокси */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  cursor: pointer;
+}
+
+/* Таблиця */
+.table-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.table-card h2 {
+  padding: 1.5rem 1.5rem 0.75rem 1.5rem;
+  margin-bottom: 0;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+th {
+  background: #f8fafc;
+  padding: 0.85rem 1.5rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background-color: #fafafa;
+}
+
+.fw-medium {
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+/* Бейджі (Badges) */
+.slug-badge {
+  background-color: #f1f5f9;
+  color: #334155;
+  font-family: monospace;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+}
+
+.attributes-badges {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.attr-badge {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.75rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.req-dot {
+  color: var(--danger);
+  margin-left: 2px;
+  font-weight: bold;
+}
+
+/* Екшени в таблиці */
+.actions-cell {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.btn-table {
+  background: none;
+  border: 1px solid transparent;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-edit {
+  color: var(--primary);
+  border-color: var(--primary-light);
+}
+
+.btn-edit:hover {
+  background: var(--primary-light);
+}
+
+.btn-delete {
+  color: var(--danger);
+  border-color: var(--danger-light);
+}
+
+.btn-delete:hover {
+  background: var(--danger-light);
+  clear: var(--danger-hover);
+}
+
+.table-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem !important;
+}

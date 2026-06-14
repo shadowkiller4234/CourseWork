@@ -1,0 +1,45 @@
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.toast {
+  min-width: 220px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  animation: slideIn 0.3s ease;
+  cursor: pointer;
+}
+
+/* типи */
+.toast.success {
+  background: #22c55e;
+}
+
+.toast.error {
+  background: #ef4444;
+}
+
+.toast.info {
+  background: #3b82f6;
+}
+
+/* анімація */
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

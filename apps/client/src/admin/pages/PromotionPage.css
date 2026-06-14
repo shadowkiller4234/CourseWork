@@ -1,0 +1,224 @@
+/* Основний контейнер сторінки */
+.promotions-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding: 2rem 1.5rem;
+  color: #1f2937;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.promotions-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Хедер сторінки */
+.promotions-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.header-icon-wrapper {
+  background-color: #4f46e5;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promotions-header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin: 0;
+  color: #111827;
+}
+
+.promotions-header p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0.125rem 0 0 0;
+}
+
+/* Блок створення */
+.create-section-wrapper {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2.5rem;
+}
+
+/* Секція списку */
+.list-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+/* Порожній стан */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  border: 2px dashed #d1d5db;
+  color: #9ca3af;
+}
+
+/* Адаптивна сітка карток */
+.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-index-width: 640px) { /* Планшети */
+  .promo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) { /* Десктопи */
+  .promo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Картка акції */
+.promo-card-admin {
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.promo-card-admin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Зображення та бейдж */
+.promo-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #f3f4f6;
+  border-bottom: 1px solid #f9fafb;
+  overflow: hidden;
+}
+
+.promo-card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.position-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  text-transform: capitalize;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.position-badge.main {
+  background-color: #e0e7ff;
+  color: #4338ca;
+  border: 1px solid #c7d2fe;
+}
+
+.position-badge.side {
+  background-color: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+/* Текстова частина картки */
+.promo-card-body {
+  padding: 1.25rem;
+  flex-grow: 1;
+}
+
+.promo-card-body h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: #111827;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.promo-card-body p {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.5rem;
+}
+
+/* Футер картки з кнопками */
+.promo-card-footer {
+  padding: 0.5rem 1.25rem 1.25rem 1.25rem;
+  display: flex;
+  gap: 0.5rem;
+  background-color: rgba(249, 250, 251, 0.5);
+  border-top: 1px solid #f9fafb;
+}
+
+.btn-edit, .btn-delete {
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.15s ease;
+}
+
+.btn-edit:active, .btn-delete:active {
+  transform: scale(0.98);
+}
+
+.btn-edit {
+  flex-grow: 1;
+  background-color: white;
+  color: #374151;
+  padding: 0.5rem 1rem;
+}
+
+.btn-edit:hover {
+  background-color: #f9fafb;
+  color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.btn-delete {
+  background-color: white;
+  color: #dc2626;
+  padding: 0.5rem;
+  aspect-ratio: 1 / 1;
+}
+
+.btn-delete:hover {
+  background-color: #fef2f2;
+  border-color: #fee2e2;
+}

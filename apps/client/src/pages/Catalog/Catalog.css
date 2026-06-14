@@ -1,0 +1,225 @@
+.catalog {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-color);
+}
+
+/* Стан завантаження */
+.catalog > h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-muted);
+  padding: 4rem 0;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   БІЧНА ПАНЕЛЬ ФІЛЬТРІВ (ASIDE)
+   ========================================================================== */
+.filters {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+  height: fit-content;
+  position: sticky;
+  top: 1rem;
+}
+
+.filters h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+/* Блоки фільтрів (Категорії, Бренди, Ціна) */
+.filters .block {
+  margin-bottom: 1.75rem;
+}
+
+.filters h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+/* Чекбокси та лейбли */
+.filters label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.filters label:hover {
+  color: var(--primary-color);
+}
+
+.filters input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  outline: none;
+  background-color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: var(--transition);
+}
+
+.filters input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.filters input[type="checkbox"]:checked::before {
+  content: "";
+  width: 8px;
+  height: 4px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg) translate(1px, -1px);
+}
+
+/* Кастомний повзунок ціни (Range) */
+.filters input[type="range"] {
+  width: 100%;
+  accent-color: var(--primary-color);
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.price-display {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+/* Кнопка скидання фільтрів */
+.filters .reset {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filters .reset:hover {
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   СІТКА ТОВАРІВ (MAIN)
+   ========================================================================== */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Сама сітка карток (якщо у вас всередині ProductCard лежить звичайний блок) */
+/* Припускаємо, що картки обгортаються у флекс або грід автоматично */
+.grid:not(:has(.no-results)) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Стан "Товари не знайдені" */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-color);
+}
+
+.no-results h3 {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   ПАГІНАЦІЯ (PAGINATION)
+   ========================================================================== */
+.pagination {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.pagination button {
+  min-width: 40px;
+  height: 40px;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  color: var(--text-main);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background-color: #eff6ff;
+}
+
+.pagination button.active {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: var(--border-color);
+}
+
+/* ==========================================================================
+   АДАПТИВНІСТЬ (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .catalog {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .filters {
+    position: static; /* Вимикаємо плаваючу панель на мобільних */
+  }
+}

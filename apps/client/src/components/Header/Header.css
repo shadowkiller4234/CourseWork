@@ -1,0 +1,257 @@
+/* Шапка з ефектом скла (Glassmorphism) та фіксацією нагорі */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(241, 245, 249, 0.8);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Логотип */
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #4f46e5;
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  transition: transform 0.15s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+/* Навігаційні лінки */
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #4f46e5;
+}
+
+/* Контейнер пошуку */
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 450px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Іконка лупи всередині інпуту */
+.search-icon-left {
+  position: absolute;
+  left: 1rem;
+  width: 18px;
+  height: 18px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.6rem;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background-color: #f8fafc;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #4f46e5;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* Випадаюче вікно результатів пошуку */
+.search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+/* Елемент списку пошуку */
+.search-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.75rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+  gap: 1rem;
+}
+
+.search-item:hover {
+  background-color: #f8fafc;
+}
+
+.search-item-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+/* Маленьке фото товару в пошуку (якщо є) */
+.search-item-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  object-fit: cover;
+  background-color: #f1f5f9;
+}
+
+.search-item-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-item-price {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4f46e5;
+  flex-shrink: 0;
+}
+
+/* Кнопка кошика */
+.cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #475569;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.cart-btn:hover {
+  color: #4f46e5;
+  background-color: #f0fdf4; /* Світло-зелений або міняйте на #e0e7ff під ваш бренд */
+}
+
+.cart-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Секція авторизації */
+.auth {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #4f46e5;
+  padding: 0.55rem 1.25rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #4338ca;
+}
+
+/* Бокс залогіненого користувача */
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.username {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+  transition: color 0.2s ease;
+}
+
+.username:hover {
+  color: #4f46e5;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  color: #ef4444;
+  border-color: #fca5a5;
+  background-color: #fef2f2;
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media (max-width: 640px) {
+  .header .container {
+    flex-wrap: wrap;
+    padding: 0.75rem 1rem;
+  }
+  
+  .search-container {
+    order: 4;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+  }
+}

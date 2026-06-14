@@ -1,0 +1,63 @@
+.home-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.loading-text {
+  text-align: center;
+  color: #86868b;
+  margin-top: 50px;
+}
+
+.category-section {
+  margin-bottom: 60px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 12px;
+}
+
+.section-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin: 0;
+}
+
+.more-link {
+  color: #0071e3;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: opacity 0.2s;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+  .section-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}

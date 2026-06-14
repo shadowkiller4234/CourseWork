@@ -1,0 +1,161 @@
+/* Базовий контейнер сторінки */
+.brands-page {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 850px;
+  margin: 60px auto;
+  padding: 0 20px;
+  background-color: transparent;
+  color: #111111;
+}
+
+/* Витончений заголовок */
+.brands-page h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+/* Форма в один рядок */
+.brands-page .form-container {
+  margin-bottom: 40px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0;
+  background: transparent;
+}
+
+/* Мінімалістичне поле вводу */
+.brands-page .form-container input {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  color: #111111;
+  background-color: #f4f4f5;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.brands-page .form-container input::placeholder {
+  color: #a1a1aa;
+}
+
+.brands-page .form-container input:focus {
+  background-color: #ffffff;
+  border-color: #e4e4e7;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Кнопки (Універсальний легкий стиль) */
+.brands-page button {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.brands-page button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Головна кнопка (Чорна) */
+.brands-page .btn-submit {
+  background-color: #18181b;
+  color: #ffffff;
+}
+
+.brands-page .btn-submit:hover:not(:disabled) {
+  background-color: #27272a;
+}
+
+/* Кнопка "Скасувати" */
+.brands-page .btn-cancel {
+  background-color: #ffffff;
+  color: #71717a;
+  border-color: #e4e4e7;
+}
+
+.brands-page .btn-cancel:hover {
+  background-color: #f4f4f5;
+  color: #18181b;
+}
+
+/* Легка, "невагома" таблиця */
+.brands-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.brands-page th {
+  color: #71717a;
+  font-weight: 500;
+  text-align: left;
+  padding: 12px 8px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.brands-page td {
+  padding: 16px 8px;
+  border-bottom: 1px solid #f4f4f5;
+  color: #27272a;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+
+.brands-page tr:hover td {
+  background-color: #fafafa;
+}
+
+/* Акуратний маленький Slug */
+.brands-page .slug-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: #18181b;
+  background: #f4f4f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  display: inline-block; /* Щоб padding працював коректно */
+}
+
+/* Кнопки дій у таблиці */
+.brands-page td button {
+  background: transparent;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 4px;
+  border-radius: 6px;
+  border: 1px solid #e4e4e7;
+  color: #71717a;
+}
+
+/* Кнопка Edit */
+.brands-page .btn-edit:hover {
+  color: #2563eb;
+  border-color: #bfdbfe;
+  background-color: #eff6ff;
+}
+
+/* Кнопка Delete */
+.brands-page .btn-delete {
+  margin-right: 0;
+}
+
+.brands-page .btn-delete:hover {
+  color: #dc2626;
+  border-color: #fecaca;
+  background-color: #fef2f2;
+}
