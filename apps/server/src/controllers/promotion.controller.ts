@@ -14,7 +14,7 @@ export const PromotionController = {
 
   async getById(req: Request, res: Response) {
     try {
-      const data = await PromotionService.getById(req.params.id);
+      const data = await PromotionService.getById(req.params.id as string);
       res.json(data);
     } catch (err) {
       res.status(500).json({ message: "Error fetching promotion" });
@@ -50,7 +50,7 @@ export const PromotionController = {
   async update(req: Request, res: Response) {
     try {
       const data = await PromotionService.update(
-        req.params.id,
+        req.params.id as string,
         req.body
       );
       res.json(data);
