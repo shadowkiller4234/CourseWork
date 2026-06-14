@@ -42,7 +42,7 @@ export const removeFromCartController = async (
   try {
     const cart = await cartService.removeFromCart(
       req.user!.userId,
-      req.params.productId
+      req.params.productId as string
     );
 
     res.json(cart);
@@ -62,7 +62,7 @@ export const updateQtyController = async (
   try {
     const cart = await cartService.updateQuantity(
       req.user!.userId,
-      req.params.productId,
+      req.params.productId as string,
       Number(req.body.quantity)
     );
 
