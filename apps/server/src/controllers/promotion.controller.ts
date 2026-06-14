@@ -61,7 +61,7 @@ export const PromotionController = {
 
   async remove(req: Request, res: Response) {
     try {
-      await PromotionService.remove(req.params.id);
+      await PromotionService.remove(req.params.id as string);
       res.json({ message: "Deleted" });
     } catch (err) {
       res.status(500).json({ message: "Error deleting promotion" });
