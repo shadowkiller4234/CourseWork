@@ -28,7 +28,7 @@ export const updateOrder = async (
     try {
         const updatedOrder = await orderService.UpdateOrder(
             req.body,
-            req.params.id
+            req.params.id as string
         );
 
         return res.status(200).json(
