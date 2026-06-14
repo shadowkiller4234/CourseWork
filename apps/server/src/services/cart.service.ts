@@ -78,7 +78,7 @@ export const updateQuantity = async (
 
 export const clearCart = async (userId: string) => {
   const cart = await getCart(userId);
-  cart.items = [];
+  cart.items = [] as any;
   await cart.save();
   return cart;
 };
