@@ -22,7 +22,7 @@ export const categoriesAdd = async (req: Request, res: Response) => {
 export const categoriesUpdate = async (req: Request, res: Response) => {
   try {
     const updated = await categoryService.updateCategory(
-      req.params.id,
+      req.params.id as string,
       req.body
     );
 
